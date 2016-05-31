@@ -32,6 +32,7 @@ class Api::V1::BooksController < Api::V1Controller
 
   def update
     @book = Book.find(params[:id])
+    @book.attributes = books_params
     if @book.save
       respond_to do |format|
         format.json
